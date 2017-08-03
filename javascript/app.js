@@ -1,3 +1,15 @@
+var map;
+function initMap() {
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: {
+		lat: -34.397,
+		lng: 150.644
+		},
+		zoom: 8
+	});
+	// console.log(map);
+}
+
 $(document).ready(function(){
 // Initialize Firebase
 	var config = {
@@ -19,6 +31,9 @@ $(document).ready(function(){
     var addressZipcode = "";
 	var latitude;
 	var longitude;
+	// Track the UID of the current user.  
+	var currentUid = null;
+	var currentUser = null;
 
 	// Search Recipes api function
 	$("#searchForm").on("submit", function(event){
@@ -43,7 +58,7 @@ $(document).ready(function(){
 		return false;
 	});// end Search Recipes api function
 
-    //Sign up Form 
+    //Sign up Sign in Form 
     //capture sign up button click
     $("#signUp").on("click", function(){
     	//prevent refreshing page
@@ -62,8 +77,9 @@ $(document).ready(function(){
 		alert('Please enter a password.');
 		return;
 		}
-    	//push the retrieved values to firebase
-    	database.ref().set({
+
+    	//push the retrieved values to firebase to test the function
+    	database.ref().push({
     		name: name,
     		email: email,
     		password: password,
@@ -71,22 +87,78 @@ $(document).ready(function(){
     	});
 
     	//print the data to the console
-	    console.log(name, email, password, address,);
-	    console.log("Lat = "+latitude+"- Long = "+longitude);
+	    // console.log(name, email, password, addressZipcode);
+
 	    //create wth emial
-	    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+	    firebase.auth().createUserWithEmailAndPassword(email, password )
+	    //then do the following
+	 //    .then(function(){
+		// 	// //print current user to the console 
+		// 	// console.log(currentUser);
+		// 	//store the current user and its ID to the variables
+		// 	currentUser = firebase.auth().currentUser;
+		// 	currentUid = firebase.auth().currentUser.uid;
+		// 	console.log(currentUser, currentUid);
+
+		// 	// //update user profile 
+		// 	// currentUser.updateProfile({
+		// 	// 	displayName: name
+		// 	// });
+
+			
+		// })
+	    //catch errors after
+		.catch(function(error) {
 			// Handle Errors here.
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			if (errorCode == 'auth/weak-password') {
 			alert('The password is too weak.');
 			} else {
-			alert(errorMessage);
+			// alert(errorMessage);
 			}
+			//print the error to the console 
 			console.log(error);
+
 		});
 
+
+
+
 	});//end of sign up function
+
+    //capture sign in button click
+    $("#signIn").on("click",function(){
+		email = $("#emailInput").val().trim();
+		password = $("#passwordInput").val().trim();
+
+		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+		  // Handle Errors here.
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  // ...
+		});
+    });//end of Sign in function
+
+ //    //an authentication state observer to get user data sign in
+	// firebase.auth().onAuthStateChanged(function(user) {
+	// 	if (user) {
+	// 		// User is signed in.
+	// 		var displayName = user.displayName;
+	// 		var email = user.email;
+	// 		var emailVerified = user.emailVerified;
+	// 		var photoURL = user.photoURL;
+	// 		var isAnonymous = user.isAnonymous;
+	// 		var uid = user.uid;
+	// 		var providerData = user.providerData;
+	// 		// console.log(user);
+	// 		console.log(displayName, email, uid);
+		
+	// 	} else {
+	// 		// User is signed out.
+	// 	}
+	// });
+
 
 	//google maps and geo
 	// if (navigator.geolocation) {
@@ -95,28 +167,17 @@ $(document).ready(function(){
 	// 	});
 	// };
 
-	var map;
-
-	function initMap() {
-		map = new google.maps.Map(document.getElementById('googleMap'), {
-			center: {
-				lat: -34.397,
-				lng: 150.644
-			},
-			zoom: 8
-		});
-	}
 
 	//ajax call to get long and lat
-	$.ajax({
-		url : "http://maps.googleapis.com/maps/api/geocode/json?address=santa+cruz&components=postal_code:"+addressZipcode+"&sensor=false",
-		method: "POST",
-		success:function(data){
-		latitude = data.results[0].geometry.location.lat;
-		longitude= data.results[0].geometry.location.lng;
-		console.log("Lat = "+latitude+"- Long = "+longitude);
-		}
-	});//end of ajaxcall
+	// $.ajax({
+	// 	url : "http://maps.googleapis.com/maps/api/geocode/json?address=santa+cruz&components=postal_code:"+addressZipcode+"&sensor=false",
+	// 	method: "POST",
+	// 	success:function(data){
+	// 	latitude = data.results[0].geometry.location.lat;
+	// 	longitude= data.results[0].geometry.location.lng;
+	// 	console.log("Lat = "+latitude+"- Long = "+longitude);
+	// 	}
+	// });//end of ajaxcall
 
     
 
