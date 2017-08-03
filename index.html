@@ -93,44 +93,40 @@
 					<div class="brand">
 						<h2 class="title">Home Cooking onDemand</h2>
 						</br></br>
-
-								<div class="card card-raised card-form-horizontal">
-	        						<div class="card-content">
-	        							<form method="" action="" id="searchForm">
-	        								<div class="row">
-	        									<div class="col-sm-8">
-
-	        										<div class="input-group">
-	        											<span class="input-group-addon">
-	        												<i class="material-icons">restaurant</i>
-	        											</span>
-	        											<input type="text" value="" placeholder="What's For Dinner?" class="form-control" id="recipeSearch"/>
-	        										</div>
-	        									</div>
-	        									<div class="col-sm-4">
-	        										<button  type="submit" class="btn btn-primary btn-block"><i class="material-icons">search</i> Search Recipes</button>
-	        									</div>
-	        								</div>
-	        							</form>
-	        						</div>
-	        					</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="main main-raised">
+	<div class="main main-raised" id="hiddenRaised">
 		<div class="section section-black">
 	    	<div class="container">
-          <div id="results">
-            
-          </div>
-          
-        <p>this is place holder content</p>
-			</div><!--     *********    END OF CONTAINER      *********      -->
-	       </div> <!--     *********		End of "#main main-raised"	 *********      -->
-	    </div>	  <!--     *********		End of "#section section-basic"	 *********      -->
+	          	<div class="col-md-12" id="searchResults">
+		            <h1 class="text-center">Welcome to Find-A-Meal</h1>
+		        </div>   	            	
+	        </div>
+		</div><!--     *********    END OF CONTAINER      *********      -->
+	</div> <!--     *********		End of "#main main-raised"	 *********      -->
+</div>	  <!--     *********		End of "#section section-basic"	 *********      -->
+	        								<div class="row">
+	        									<div class="col-sm-8">
+
+	        										<div class="input-group">
+	        											<span class="input-group-addon">
+	        												<i class="material-icons">local_dining</i>
+	        											</span>
+	        											<input type="text" value="" placeholder="What's for dinner?" class="form-control" id="recipeSearch"/>
+	        										</div>
+	        									</div>
+	        									<div class="col-sm-4">
+	        										<button  type="submit" class="btn btn-primary btn-block">Search Recipes</button>
+	        									</div>
+	        								</div>
+	        							</form>
+	        						</div>
+	        					</div>
+					</div>
 
 
 
@@ -1021,14 +1017,14 @@
 										<span class="input-group-addon">
 											<i class="material-icons">email</i>
 										</span>
-										<input type="text" class="form-control" placeholder="Email...">
+										<input type="email" class="form-control" placeholder="Email..." id="emailInput">
 									</div>
 
 									<div class="input-group">
 										<span class="input-group-addon">
 											<i class="material-icons">lock_outline</i>
 										</span>
-										<input type="password" placeholder="Password..." class="form-control" />
+										<input type="password" placeholder="Password..." class="form-control">
 									</div>
 									<div class="togglebutton">
 										<label>
