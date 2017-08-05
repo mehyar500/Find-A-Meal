@@ -93,40 +93,44 @@
 					<div class="brand">
 						<h2 class="title">Home Cooking onDemand</h2>
 						</br></br>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<div class="main main-raised" id="hiddenRaised">
-		<div class="section section-black">
-	    	<div class="container">
-	          	<div class="col-md-12" id="searchResults">
-		            <h1 class="text-center">Welcome to Find-A-Meal</h1>
-		        </div>   	            	
-	        </div>
-		</div><!--     *********    END OF CONTAINER      *********      -->
-	</div> <!--     *********		End of "#main main-raised"	 *********      -->
-</div>	  <!--     *********		End of "#section section-basic"	 *********      -->
+								<div class="card card-raised card-form-horizontal">
+	        						<div class="card-content">
+	        							<form method="" action="" id="searchForm">
 	        								<div class="row">
 	        									<div class="col-sm-8">
 
 	        										<div class="input-group">
 	        											<span class="input-group-addon">
-	        												<i class="material-icons">local_dining</i>
+	        												<i class="material-icons">restaurant</i>
 	        											</span>
-	        											<input type="text" value="" placeholder="What's for dinner?" class="form-control" id="recipeSearch"/>
+	        											<input type="text" value="" placeholder="What's For Dinner?" class="form-control" id="recipeSearch"/>
 	        										</div>
 	        									</div>
 	        									<div class="col-sm-4">
-	        										<button  type="submit" class="btn btn-primary btn-block">Search Recipes</button>
+	        										<button  type="submit" class="btn btn-primary btn-block"><i class="material-icons">search</i> Search Recipes</button>
 	        									</div>
 	        								</div>
 	        							</form>
 	        						</div>
 	        					</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="main main-raised" >
+		<div class="section section-black">
+	    	<div class="container">
+          <div id="results">
+            
+          </div>
+          
+        <p>this is place holder content</p>
+			</div><!--     *********    END OF CONTAINER      *********      -->
+	       </div> <!--     *********		End of "#main main-raised"	 *********      -->
+	   </div>	  <!--     *********		End of "#section section-basic"	 *********      -->
 
 
 
@@ -157,7 +161,7 @@
 											<div class="back back-background">
 												<div class="card-content">
 													<h5 class="card-title">
-														Brandon Smith
+														Brandon Smiths
 													</h5>
 													<p class="card-description">
 														Check-out my menu and place an order today.
@@ -1017,14 +1021,14 @@
 										<span class="input-group-addon">
 											<i class="material-icons">email</i>
 										</span>
-										<input type="email" class="form-control" placeholder="Email..." id="emailInput">
+										<input type="text" class="form-control" placeholder="Email...">
 									</div>
 
 									<div class="input-group">
 										<span class="input-group-addon">
 											<i class="material-icons">lock_outline</i>
 										</span>
-										<input type="password" placeholder="Password..." class="form-control">
+										<input type="password" placeholder="Password..." class="form-control" />
 									</div>
 									<div class="togglebutton">
 										<label>
@@ -1110,8 +1114,5 @@
 	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
 	<script src="assets/js/material-kit.js?v=1.1.0" type="text/javascript"></script>
 
-	<!-- Fixed Sidebar Nav - JS For Demo Purpose, Don't Include it in your project -->
-	<script src="assets/assets-for-demo/modernizr.js" type="text/javascript"></script>
-	<script src="assets/assets-for-demo/vertical-nav.js" type="text/javascript"></script>
 
 </html>
